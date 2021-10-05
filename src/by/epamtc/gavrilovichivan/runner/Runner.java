@@ -1,4 +1,8 @@
-package by.epamtc.gavrilovichivan;
+package by.epamtc.gavrilovichivan.runner;
+
+import by.epamtc.gavrilovichivan.entity.Ball;
+import by.epamtc.gavrilovichivan.entity.Basket;
+import by.epamtc.gavrilovichivan.entity.Color;
 
 public class Runner {
 

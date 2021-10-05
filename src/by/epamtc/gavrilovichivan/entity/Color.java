@@ -1,4 +1,4 @@
-package by.epamtc.gavrilovichivan;
+package by.epamtc.gavrilovichivan.entity;
 
 public enum Color {
 

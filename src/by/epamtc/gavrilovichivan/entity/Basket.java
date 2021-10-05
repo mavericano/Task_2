@@ -1,4 +1,4 @@
-package by.epamtc.gavrilovichivan;
+package by.epamtc.gavrilovichivan.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
