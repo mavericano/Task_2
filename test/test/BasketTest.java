@@ -1,4 +1,4 @@
-package by.epamtc.gavrilovichivan.test;
+package test;
 
 import by.epamtc.gavrilovichivan.entity.Ball;
 import by.epamtc.gavrilovichivan.entity.Basket;
@@ -10,25 +10,74 @@ import static org.junit.jupiter.api.Assertions.*;
 class BasketTest {
 
     @Test
-    public void computeTotalWeight() {
+    public void get_Out_Of_Bounds() {
         Basket basket = new Basket();
         basket.add(new Ball(Color.RED, 2));
         basket.add(new Ball(Color.BLUE, 8));
         basket.add(new Ball(Color.GREEN, 9));
-        float actual = 19.0f;
-        float expected = basket.computeTotalWeight();
+
+        try {
+            basket.get(4);
+            fail("Expected IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException thrown) {
+            assertNotEquals("", thrown.getMessage());
+        }
+    }
+
+    @Test
+    public void computeTotalWeight_Not_Null() {
+        Basket basket = new Basket();
+        basket.add(new Ball(Color.RED, 2));
+        basket.add(new Ball(Color.BLUE, 8));
+        basket.add(new Ball(Color.GREEN, 9));
+        float actual = basket.computeTotalWeight();
+        float expected = 19.0f;
 
         assertEquals(expected, actual);
     }
 
     @Test
-    public void countBlueBalls() {
+    public void computeTotalWeight_Has_Null() {
+        Basket basket = new Basket();
+        basket.add(new Ball(Color.RED, 2));
+        basket.add(new Ball(Color.BLUE, 8));
+        try {
+            basket.add(null);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException thrown) {
+            assertNotEquals("", thrown.getMessage());
+        }
+        float actual = basket.computeTotalWeight();
+        float expected = 10.0f;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void countBlueBalls_Not_Null() {
         Basket basket = new Basket();
         basket.add(new Ball(Color.RED, 2));
         basket.add(new Ball(Color.BLUE, 8));
         basket.add(new Ball(Color.GREEN, 9));
-        int actual = 1;
-        int expected = basket.countBlueBalls();
+        int actual = basket.countBlueBalls();
+        int expected = 1;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void countBlueBalls_Has_Null() {
+        Basket basket = new Basket();
+        basket.add(new Ball(Color.RED, 2));
+        basket.add(new Ball(Color.BLUE, 8));
+        try {
+            basket.add(null);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException thrown) {
+            assertNotEquals("", thrown.getMessage());
+        }
+        int actual = basket.countBlueBalls();
+        int expected = 1;
 
         assertEquals(expected, actual);
     }

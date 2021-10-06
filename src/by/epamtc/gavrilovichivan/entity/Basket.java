@@ -32,6 +32,9 @@ public class Basket implements Serializable {
     }
 
     public void add(Ball ball) {
+        if (ball == null) {
+            throw new IllegalArgumentException("Ball must be non-null");
+        }
         balls.add(ball);
     }
 
